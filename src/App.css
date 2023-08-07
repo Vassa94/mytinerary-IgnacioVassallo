@@ -1,0 +1,296 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #393838;
+
+}
+
+.spline-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Para que el diseño no interfiera con el contenido */
+}
+
+/* Home styles */
+.home-container {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50vh;
+  width: 80%;
+  border-radius: 20px;
+  background-color: #f0f0f094;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+}
+
+.content-box {
+  padding: 20px 0px;
+  width: 50%;
+  height: 100%;
+}
+
+.text-box{
+  text-align: start;
+  height: 80%;
+  padding: 0px 20px 20px 0px;
+  margin-bottom: auto;
+}
+
+.text-box h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.text-box p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.view-more-btn-home {  
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.image-box {
+  padding: 20px 0px;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-box img {
+  height: 100%;
+  border-radius: 20px;
+}
+
+.carousel-caption {
+  text-shadow: #393838 2px 2px;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* Cities Styles */
+
+.banner-image {
+  height: 50vh; 
+  width: 100%;
+  background-image: url(src/assets/img/Banner.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-box input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.destinations-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.destination-box {
+  width: 300px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.destination-bg {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.destination-bg h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+}
+
+.location-info i {
+  margin-right: 5px;
+}
+
+.view-more-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden; 
+}
+
+.destinations-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.destination-box {
+  flex: 0 0 300px; 
+  height: 300px;
+  margin-right: 20px; 
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;  
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+
+
+.destination-box h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.location-info {
+  display: flex;
+  align-items: baseline;
+}
+
+.location-info i {
+  margin-right: 5px;
+}
+
+.view-more-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  background: none;
+  border: none;
+  color: #000; 
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev-btn {
+  left: 0; 
+  transform: translateY(-50%);
+}
+
+.next-btn {
+  right: 0; 
+  transform: translateY(-50%);
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  color: #fff; 
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Destination Styles */
+
+.destination-banner {
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.destination-banner h2 {
+  font-size: 36px;
+}
+
+.destination-info {
+  padding: 20px;
+}
+
+.destination-info p {
+  margin-bottom: 15px;
+}
+
+.view-itineraries-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.view-itineraries-btn i {
+  margin-left: 5px;
+}
