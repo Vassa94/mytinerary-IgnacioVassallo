@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+import destinationsData from "./cities";
 
-const destinationsData = [
+/* const destinationsData = [
     {
         name: "Calafate",
         location: "Argentina",
@@ -27,18 +28,17 @@ const destinationsData = [
         location: "Egipto",
         image: "src/assets/img/Egipto.png",
     },
-    // Agrega más destinos aquí
-];
+]; */
 
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
   
     const nextSlide = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === destinationsData.length - 1 ? 0 : prevIndex + 1));
+      setCurrentIndex((prevIndex) => (prevIndex === destinationsData.length - 1 ? 0 : prevIndex + 4));
     };
   
     const prevSlide = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? destinationsData.length - 1 : prevIndex - 1));
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? destinationsData.length - 1 : prevIndex - 4));
     };
   
     useEffect(() => {
@@ -68,14 +68,14 @@ const Carousel = () => {
             <div
               key={index}
               className={`destination-box ${index === 0 ? "first" : ""} ${index === visibleDestinations.length - 1 ? "last" : ""} ${index === 1 ? "second" : ""} ${index === visibleDestinations.length - 2 ? "second-last" : ""}`}
-              style={{ backgroundImage: `url(${destination.image})` }}
+              style={{ backgroundImage: `url(${destination.photo})` }}
             >
-              <h3>{destination.name}</h3>
+              <h3>{destination.featuredLocation}</h3>
               <div className="location-info">
                 <i className="fas fa-map-marker-alt"></i>
-                <p>{destination.location}</p>
+                <p>{destination.country}</p>
               </div>
-              <button className="view-more-btn" onClick={""}>View More</button>            </div>
+              {/* <button className="view-more-btn"  onClick={""}>View More</button>   */}          </div>
           ))}
         </div>
         <button className="next-btn" onClick={nextSlide}><i className="fas fa-chevron-right"></i></button>
