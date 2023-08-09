@@ -30,7 +30,7 @@ const slides = [
   // Agrega más destinos aquí
 ]
 
-const CarouselHome = () => {
+const CarouselSimple = () => {
   return (
     <Carousel>
       {slides.map((slide, index) => (
@@ -50,4 +50,4 @@ const CarouselHome = () => {
   );
 };
 
-export default CarouselHome;
+export default CarouselSimple;
