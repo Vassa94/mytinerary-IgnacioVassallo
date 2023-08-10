@@ -31,57 +31,92 @@ import destinationsData from "./cities";
 ]; */
 
 const Carousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-  
-    const nextSlide = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === destinationsData.length - 1 ? 0 : prevIndex + 4));
-    };
-  
-    const prevSlide = () => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? destinationsData.length - 1 : prevIndex - 4));
-    };
-  
-    useEffect(() => {
-      // Rotar automáticamente cada 5 segundos
-      const intervalId = setInterval(nextSlide, 5000);
-  
-      return () => {
-        clearInterval(intervalId);
-      };
-    }, []);
-  
-    // Ajustar currentIndex para asegurar que siempre muestre 4 destinos
-    let adjustedIndex = currentIndex;
-    while (adjustedIndex + 3 >= destinationsData.length) {
-      adjustedIndex--;
-    }
-  
-    const visibleDestinations = destinationsData.slice(adjustedIndex, adjustedIndex + 4);
-  
-    
-    
-    return (
-      <div className="carousel-container">
-        <button className="prev-btn" onClick={prevSlide}><i className="fas fa-chevron-left"></i></button>
-        <div className="destinations-carousel">
-          {visibleDestinations.map((destination, index) => (
-            <div
-              key={index}
-              className={`destination-box ${index === 0 ? "first" : ""} ${index === visibleDestinations.length - 1 ? "last" : ""} ${index === 1 ? "second" : ""} ${index === visibleDestinations.length - 2 ? "second-last" : ""}`}
-              style={{ backgroundImage: `url(${destination.photo})` }}
-            >
-              <h3>{destination.featuredLocation}</h3>
-              <div className="location-info">
-                <i className="fas fa-map-marker-alt"></i>
-                <p>{destination.country}</p>
-              </div>
-              {/* <button className="view-more-btn"  onClick={""}>View More</button>   */}          </div>
-          ))}
-        </div>
-        <button className="next-btn" onClick={nextSlide}><i className="fas fa-chevron-right"></i></button>
-      </div>
-    );
-  };
-  
-  export default Carousel;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cantSlides, setCantSlides] = useState(4);
 
+  useEffect(() => {
+    const updateCantSlides = () => {
+      if (window.innerWidth <= 681) {
+        setCantSlides(1);
+      } else if (window.innerWidth <= 1021) {
+        setCantSlides(2);
+      } else if (window.innerWidth <= 1367) {
+        setCantSlides(3);
+      } else {
+        setCantSlides(4);
+      }
+    };
+    updateCantSlides();
+    window.addEventListener("resize", updateCantSlides);
+    return () => {
+      window.removeEventListener("resize", updateCantSlides);
+    };
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex + cantSlides;
+      return newIndex >= destinationsData.length ? 0 : newIndex;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex - cantSlides;
+      return newIndex < 0 ? destinationsData.length - cantSlides : newIndex;
+    });
+  };
+
+  useEffect(() => {
+    // Rotar automáticamente cada 5 segundos
+    const intervalId = setInterval(nextSlide, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  // Ajustar currentIndex para asegurar que siempre muestre 4 destinos
+  let adjustedIndex = currentIndex;
+  while (adjustedIndex + (cantSlides - 1) >= destinationsData.length) {
+    adjustedIndex--;
+  }
+
+  const visibleDestinations = destinationsData.slice(
+    adjustedIndex,
+    adjustedIndex + cantSlides
+  );
+
+  return (
+    <div className="carousel-container">
+      <button className="prev-btn" onClick={prevSlide}>
+        <i className="fas fa-chevron-left"></i>
+      </button>
+      <div className="destinations-carousel">
+        {visibleDestinations.map((destination, index) => (
+          <div
+            key={index}
+            className={`destination-box ${index === 0 ? "first" : ""} ${
+              index === visibleDestinations.length - 1 ? "last" : ""
+            } ${index === 1 ? "second" : ""} ${
+              index === visibleDestinations.length - 2 ? "second-last" : ""
+            }`}
+            style={{ backgroundImage: `url(${destination.photo})` }}
+          >
+            <h3>{destination.featuredLocation}</h3>
+            <div className="location-info">
+              <i className="fas fa-map-marker-alt"></i>
+              <p>{destination.country}</p>
+            </div>
+            {/* <button className="view-more-btn"  onClick={""}>View More</button>   */}{" "}
+          </div>
+        ))}
+      </div>
+      <button className="next-btn" onClick={nextSlide}>
+        <i className="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  );
+};
+
+export default Carousel;

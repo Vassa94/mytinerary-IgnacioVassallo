@@ -3,21 +3,14 @@ import React from "react";
 import Carousel from "../components/Carousel";
 
 const CitiesPage = () => {
-  
-
   return (
     <div>
-      {/* Banner de imagen */}
       <div className="banner-image"></div>
-
-      {/* Cuadro de búsqueda */}
       <div className="search-box">
         <input type="text" placeholder="Search cities..." />
       </div>
-
-      {/* Carrusel de destinos */}
-      <div className="destinations-carousel">
-      <Carousel  />
+      <div className="cities-container">
+        <h3>Coming soon</h3>
       </div>
     </div>
   );

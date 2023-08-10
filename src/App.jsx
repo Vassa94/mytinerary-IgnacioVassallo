@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import CitiesPage from "./pages/CitiesPage";
 import LoginPage from "./pages/LoginPage";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/destination" element={<DestinationPage />} />
   
           </Routes>
+          <Footer />
         </div>
       </Router>
     </>

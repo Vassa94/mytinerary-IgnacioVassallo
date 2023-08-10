@@ -2,9 +2,10 @@
 import React, { useRef } from "react";
 import Carousel from "../components/Carousel";
 import SplineWorld from "../components/Spline";
+import { Link } from "react-router-dom";
+import cities from './../components/cities';
 
 const HomePage = () => {
-
   const carouselRef = useRef(null);
 
   const scrollToCarousel = () => {
@@ -13,10 +14,12 @@ const HomePage = () => {
     }
   };
 
+  
+
   return (
     <div className="home-page">
       <div
-        className="w-100 d-flex flex-column align-content-center justify-content-center"
+        className="w-100 d-flex hero"
         style={{ height: "100vh" }}
       >
         <div className="spline-canvas">
@@ -31,10 +34,19 @@ const HomePage = () => {
               planning your next trip has never been easier.
             </p>
           </div>
-          <button className="view-more-btn-home" onClick={scrollToCarousel}>View More</button>
+          <Link className="btn view-more-btn-home" to="cities" >
+            View More
+          </Link>
+        </div>
+        <div className="chevron-container" onClick={scrollToCarousel}>
+        <i id="chevron" className="fa-solid fa-chevron-down" ></i>
         </div>
       </div>
-      <div id="carousel" ref={carouselRef} className="d-flex justify-content-center section-home">
+      <div
+        id="carousel"
+        ref={carouselRef}
+        className="d-flex justify-content-center section-home"
+      >
         <div>
           <Carousel />
         </div>
