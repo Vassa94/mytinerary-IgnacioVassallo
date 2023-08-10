@@ -48,6 +48,7 @@ const HomePage = () => {
         className="d-flex justify-content-center section-home"
       >
         <div>
+          <h3 className="text-center">Popular Mytineraries</h3>
           <Carousel />
         </div>
       </div>
