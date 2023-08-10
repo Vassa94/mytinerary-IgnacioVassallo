@@ -68,7 +68,6 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    // Rotar automáticamente cada 5 segundos
     const intervalId = setInterval(nextSlide, 5000);
 
     return () => {
@@ -76,7 +75,6 @@ const Carousel = () => {
     };
   }, []);
 
-  // Ajustar currentIndex para asegurar que siempre muestre 4 destinos
   let adjustedIndex = currentIndex;
   while (adjustedIndex + (cantSlides - 1) >= destinationsData.length) {
     adjustedIndex--;

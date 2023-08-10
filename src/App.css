@@ -362,7 +362,6 @@
 
 @media (max-width: 950px) {
 
-  /* Estilos para pantallas pequeñas (hasta 768px de ancho) */
   .chevron-container {
     display: none;
   }
@@ -389,7 +388,6 @@
 
 @media (min-width: 300px) and (max-width: 1389px) {
 
-  /* Estilos para pantallas medianas (769px a 1200px de ancho) */
   .spline-canvas {
     display: none;
   }
@@ -424,5 +422,4 @@
 }
 
 @media (min-width: 1771px) {
-  /* Estilos para pantallas grandes (más de 1200px de ancho) */
 }

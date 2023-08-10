@@ -27,7 +27,6 @@ const slides = [
       location: "Egipto",
       image: "src/assets/img/Egipto.png",
   },
-  // Agrega más destinos aquí
 ]
 
 const CarouselSimple = () => {
