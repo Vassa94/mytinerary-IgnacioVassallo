@@ -72,7 +72,7 @@ const DestinationPage = () => {
             onClick={() => scrollToContent("activities-section")}
           >
             <i className="fa-solid fa-person-hiking fa-flip"></i> View
-            Itineraries
+            Activities
           </button>
         </div>
         <h2 className="text-center mt-5 mb-5">Section under Construction</h2>
