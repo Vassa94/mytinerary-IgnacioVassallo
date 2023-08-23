@@ -15,7 +15,7 @@ const NavBar = () => {
     >
       <Container>
         <Navbar.Brand  as={Link} to="/">
-          <img className="me-2" src="src/assets/img/logo.png" width="80px" alt="Logo"  />
+          <img className="me-2" src="src\assets\img\Logo.png" width="80px" alt="Logo"  />
           <span className="text-primary ">My</span>
           <span >Tinerary</span>
           </Navbar.Brand>
@@ -23,10 +23,17 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Nav.Link as={Link} to="/"><b>Home</b></Nav.Link>
-            <Nav.Link as={Link} to="cities"><b>Cities</b></Nav.Link>
+            <Nav.Link as={Link} to="/">
+              <i className="fa-solid fa-house"></i>
+              <b> Home</b>
+              </Nav.Link>
+            <Nav.Link as={Link} to="cities">
+              <i className="fa-solid fa-map"></i>
+              <b> Cities</b>
+              </Nav.Link>
             <Nav.Link as={Link} to="login" className="btn btn-secondary bg-primary  ms-2">
-              <i className="fas fa-user"></i> <b>Login</b>
+              <i className="fas fa-user"></i>
+              <b> Login</b>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
