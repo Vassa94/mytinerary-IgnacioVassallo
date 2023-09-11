@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ItineraryCard from "../components/ItineraryCard";
 
 const DestinationPage = () => {
   const { cityId } = useParams();
   const [cityData, setCityData] = useState({});
+  const [itineraries, setItineraries] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/cities/find/${cityId}`)
       .then((response) => response.json())
-      .then((data) => setCityData(data))
+      .then((data) => {
+        setCityData(data);
+        setItineraries(data.itineraries);
+      })
       .catch((error) => console.error("Error fetching city:", error));
   }, [cityId]);
 
@@ -66,18 +71,13 @@ const DestinationPage = () => {
           >
             <i className="fa-solid fa-map-location-dot fa-flip"></i> View
             Itineraries
-          </button>
-          <button
-            className="view-activities-btn"
-            onClick={() => scrollToContent("activities-section")}
-          >
-            <i className="fa-solid fa-person-hiking fa-flip"></i> View
-            Activities
-          </button>
+          </button>          
         </div>
-        <h2 className="text-center mt-5 mb-5">Section under Construction</h2>
+        <h2 className="text-center mt-5 mb-5">Itineraries</h2>
         <div id="itineraries-section">
-          <h2></h2>
+          {itineraries.map((itinerary) => (
+            <ItineraryCard key={itinerary.id} itinerary={itinerary} />
+          ))}
         </div>
         <div id="activities-section">
           <h2></h2>

@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import NotFound from "../components/NotFound";
+import { useDispatch, useSelector } from "react-redux";
+import { setCities } from "../redux/citiesSlice";
 
 const CitiesPage = () => {
-  const [cities, setCities] = useState([]);
+  //const [cities, setCities] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const dispatch = useDispatch();
+  const cities = useSelector((state) => state.cities.cities);
 
   useEffect(() => {
     fetch("http://localhost:3000/cities/view")
       .then((response) => response.json())
-      .then((data) => setCities(data))
+      .then((data) => dispatch(setCities(data)))
       .catch((error) => {
         console.error("Error fetching cities:", error);
-        setCities([]);
+        dispatch(setCities([]));
       });
-    console.log(cities);
-  }, []);
+  }, [dispatch]);
 
   const hideBanner = () => {
     setIsBannerVisible(false);

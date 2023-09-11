@@ -8,25 +8,31 @@ import HomePage from "./pages/HomePage";
 import CitiesPage from "./pages/CitiesPage";
 import LoginPage from "./pages/LoginPage";
 import DestinationPage from "./pages/DestinationPage";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Router>
-        <div >
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/cities" element={<CitiesPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/destination/:cityId" element={<DestinationPage />} />
-  
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/cities" element={<CitiesPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/destination/:cityId"
+                element={<DestinationPage />}
+              />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </Provider>
     </>
   );
 }

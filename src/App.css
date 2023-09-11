@@ -38,10 +38,10 @@
 .spline-canvas {
   position: absolute;
   top: 60px;
-  left: 40px;
+  right: 181px;
   pointer-events: none;
   z-index: 1;
-  /* Para que el diseño no interfiera con el contenido */
+  width: 100%;
 }
 
 /* scrollbar */
@@ -392,149 +392,174 @@
 
 
 
-  
-  .view-itineraries-btn .view-activities-btn {
-    margin-top: 20px;
-    background-color: #007bff;
+
+.view-itineraries-btn .view-activities-btn {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.view-itineraries-btn .view-activities-btn i {
+  margin-left: 10px;
+}
+
+.view-itineraries-btn .view-activities-btn:hover {
+  background-color: #0056b3;
+}
+
+.fa-flip {
+  animation: fa-flip 3s infinite;
+}
+
+@keyframes slide {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+.back-arrow {
+  position: absolute;
+  top: 93px;
+  left: 20px;
+  background: #333;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 22px;
+  animation: slide 2s infinite;
+}
+
+.back-arrow i {
+  text-decoration: none;
+  color: #FFF;
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1d1c1c;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links {
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+  gap: 10px;
+}
+
+/* Itineraries */
+
+#itineraries-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+}
+
+.itinerary-card {
+  /* width: 80vw; */
+  display: flex;
+  gap: 24px;
+  background-color: #e5e0e09e;
+  padding: 25px;
+  border-radius: 115px 15px 15px 115px;
+}
+
+.itinerary-card:hover {
+  transform: scale(1.01);
+}
+
+
+
+/* Media Query */
+
+@media (max-width: 950px) {
+
+  .chevron-container {
+    display: none;
+  }
+
+  .hero {
+    height: 600px !important;
+  }
+
+  .home-container {
     color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    transition: background-color 0.3s;
+    background-color: #00000000;
+    height: 300px;
   }
 
-  .view-itineraries-btn .view-activities-btn i {
-    margin-left: 10px;
+  #carousel {
+    height: 500px;
+    margin-bottom: 30px;
   }
 
-  .view-itineraries-btn .view-activities-btn:hover {
-    background-color: #0056b3;
+  .view-more-btn-home {
+    margin-top: 8px;
+    width: 50%;
   }
 
-  .fa-flip{
-    animation: fa-flip 3s infinite;
-  }
+}
 
-  @keyframes slide {
+@media (min-width: 300px) and (max-width: 1389px) {
 
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-  
-    50% {
-      transform: translateX(5px);
-    }
-  }
+  /* .spline-canvas {
+      display: none;
+    } */
 
-  .back-arrow{
-    position: absolute;
-    top: 93px;
-    left: 20px;
-    background: #333;
-    width: 40px;
-    height: 40px;
+  .home-container {
     display: flex;
+    margin: 20px;
+    align-items: center;
+  }
+
+  .text-box h2 {
+    font-size: 2rem
+  }
+
+  .text-box p {
+    font-size: 1rem
+  }
+
+  .hero {
     justify-content: center;
-    align-items: center;
-    border-radius: 22px;
-    animation: slide 2s infinite;
   }
 
-  .back-arrow i{
-    text-decoration: none;
-    color: #FFF;
-  }
-
-  /* Footer */
-
-  .footer {
-    display: flex;
-    justify-content: space-around;
-    background-color: #1d1c1c;
-    color: white;
-    padding: 1rem;
+  .text-box {
+    width: 100%;
     text-align: center;
   }
 
-  .footer a {
-    color: white;
-    text-decoration: none;
+  .chevron-container {
+    bottom: 120px;
   }
 
-  .footer-links {
-    display: flex;
-    text-decoration: none;
-    list-style: none;
-    gap: 10px;
-  }
+}
 
-  /* Media Query */
-
-  @media (max-width: 950px) {
-
-    .chevron-container {
-      display: none;
-    }
-
-    .hero {
-      height: 600px !important;
-    }
-
-    .home-container {
-      color: #fff;
-      background-color: #00000000;
-      height: 300px;
-    }
-
-    #carousel {
-      height: 500px;
-      margin-bottom: 30px;
-    }
-
-    .view-more-btn-home {
-      margin-top: 8px;
-      width: 50%;
-    }
-
-  }
-
-  @media (min-width: 300px) and (max-width: 1389px) {
-
-    .spline-canvas {
-      display: none;
-    }
-
-    .home-container {
-      display: flex;
-      margin: 20px;
-      align-items: center;
-    }
-
-    .text-box h2 {
-      font-size: 2rem
-    }
-
-    .text-box p {
-      font-size: 1rem
-    }
-
-    .hero {
-      justify-content: center;
-    }
-
-    .text-box {
-      width: 100%;
-      text-align: center;
-    }
-
-    .chevron-container {
-      bottom: 120px;
-    }
-
-  }
-
-  @media (min-width: 1771px) {}
+@media (min-width: 1771px) {}
