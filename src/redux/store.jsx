@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import citiesReducer from './citiesSlice'; // Crear esta parte
+import citiesReducer from './citiesSlice';
+import authReducer from './authSlice';
 
 const store = configureStore({
   reducer: {
-    cities: citiesReducer, // Agregar más reducers aquí si es necesario
+    cities: citiesReducer,
+    auth: authReducer,
   },
 });
 
