@@ -1,34 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import destinationsData from "./cities";
 
-/* const destinationsData = [
-    {
-        name: "Calafate",
-        location: "Argentina",
-        image: "src/assets/img/Calafate.png",
-    },
-    {
-        name: "Rio de Janeiro",
-        location: "Brasil",
-        image: "src/assets/img/Rio.png",
-    },
-    {
-        name: "Gran Muralla",
-        location: "China",
-        image: "src/assets/img/Muralla.png",
-    },
-    {
-        name: "Cataratas de Iguazu",
-        location: "Argentina",
-        image: "src/assets/img/Cataratas.png",
-    },
-    {
-        name: "Piramides",
-        location: "Egipto",
-        image: "src/assets/img/Egipto.png",
-    },
-]; */
+
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -106,7 +79,6 @@ const Carousel = () => {
               <i className="fas fa-map-marker-alt"></i>
               <p>{destination.country}</p>
             </div>
-            {/* <button className="view-more-btn"  onClick={""}>View More</button>   */}{" "}
           </div>
         ))}
       </div>
