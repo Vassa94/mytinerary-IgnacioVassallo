@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -24,10 +23,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/cities" element={<CitiesPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route
-                path="/destination/:cityId"
-                element={<DestinationPage />}
-              />
+              <Route path="/destination/:cityId" element={<DestinationPage />} />
             </Routes>
             <Footer />
           </div>

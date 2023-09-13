@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useRef } from "react";
 import Carousel from "../components/Carousel";
 import SplineWorld from "../components/Spline";

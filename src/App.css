@@ -11,6 +11,7 @@
 
 
 #root {
+  color: #c5c5c5;
   min-height: 100vh;
   width: 100%;
   background-color: #000000;
@@ -496,6 +497,149 @@
 }
 
 
+/*  Login section  */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  justify-content: center;
+
+}
+
+.card-signUp>div>h2,
+.card-signIn>div>h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.form-input {
+  width: 100%;
+  display: flex;
+  padding: 0px 18px;
+  justify-content: space-between;
+}
+
+.form-input>input,
+select {
+  width: 70%;
+}
+
+.card-signUp {
+  position: relative;
+  width: 360px;
+  height: 482px;
+  border-radius: 14px;
+  z-index: 3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-signIn {
+  position: relative;
+  width: 360px;
+  height: 268px;
+  border-radius: 14px;
+  z-index: 3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-signUp {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 349px;
+  height: 471px;
+  z-index: 2;
+  background: rgb(22 22 22);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-signIn {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 349px;
+  height: 257px;
+  z-index: 2;
+  background: rgb(22 22 22);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.blob-signUp {
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+.blob-signIn {
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+  opacity: 1;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -120%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -120%) translate3d(190%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -120%) translate3d(190%, 250%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -120%) translate3d(0, 250%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -120%) translate3d(0, 0, 0);
+  }
+}
+
+.swal2-popup {
+  border-radius: 36px;
+  color: white;
+  background-color: rgb(22 22 22);
+}
 
 /* Media Query */
 

@@ -41,8 +41,7 @@ const CarouselSimple = () => {
           />
           <Carousel.Caption>
             <h3>{slide.name}</h3>
-{/*             <p>{slide.location}</p>
- */}          </Carousel.Caption>
+          </Carousel.Caption>
         </Carousel.Item>
       ))}
     </Carousel>
