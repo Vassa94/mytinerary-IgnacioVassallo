@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { signUp } from "../actions/authActions";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import GoogleButton from "./GoogleButton";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -17,19 +19,42 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-        dispatch(signUp({ email, password, nombre, apellido, photo, pais })).then(() => {
+        dispatch(signUp({ email, password, nombre, apellido, photo, pais }))/* .then(() => {
             navigate("/");
-        });
+        }); */
     } catch (err) {
         console.log(err);
     }
   };
+
+  const handleSubmitGoogle = async (data) => {
+    try {
+      dispatch(
+        signUp({
+          email: data.email,
+          password: "123456",
+          nombre: data.given_name,
+          apellido: data.family_name,
+          photo: data.picture,
+          pais: data.locale,
+        })
+      )/* .then(() => {
+        navigate("/");
+      } );*/
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   return (
     <div className="d-flex justify-content-center align-items-center">
       <div className="card-signUp">
         <div className="bg-signUp">
           <h2>Registration</h2>
+          <GoogleOAuthProvider clientId="986806533997-m46iuna84c956a8lp3m2991e7l3ufcll.apps.googleusercontent.com">            
+          <GoogleButton onSubmitGoogle={handleSubmitGoogle} />          
+          </GoogleOAuthProvider>
           <form className="sign-up-form" onSubmit={handleSubmit}>
             <div className="form-input">
               <label>Email:</label>
@@ -56,7 +81,7 @@ const SignUp = () => {
               />
             </div>
             <div className="form-input">
-              <label>Surname:</label>
+              <label>Last name:</label>
               <input
                 type="text"
                 value={apellido}

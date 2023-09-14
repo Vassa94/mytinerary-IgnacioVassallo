@@ -511,7 +511,7 @@
 .card-signUp>div>h2,
 .card-signIn>div>h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
 .sign-up-form {
@@ -519,6 +519,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  margin-top: 10px;
 }
 
 .form-input {
@@ -536,7 +537,7 @@ select {
 .card-signUp {
   position: relative;
   width: 360px;
-  height: 482px;
+  height: 520px;
   border-radius: 14px;
   z-index: 3;
   overflow: hidden;
@@ -549,7 +550,7 @@ select {
 .card-signIn {
   position: relative;
   width: 360px;
-  height: 268px;
+  height: 306px;
   border-radius: 14px;
   z-index: 3;
   overflow: hidden;
@@ -564,7 +565,7 @@ select {
   top: 5px;
   left: 5px;
   width: 349px;
-  height: 471px;
+  height: 509px;
   z-index: 2;
   background: rgb(22 22 22);
   backdrop-filter: blur(24px);
@@ -579,7 +580,7 @@ select {
   top: 5px;
   left: 5px;
   width: 349px;
-  height: 257px;
+  height: 295px;
   z-index: 2;
   background: rgb(22 22 22);
   backdrop-filter: blur(24px);
@@ -638,7 +639,31 @@ select {
 .swal2-popup {
   border-radius: 36px;
   color: white;
-  background-color: rgb(22 22 22);
+  background-color: #161616;
+}
+
+.g-button{
+  border-radius: 68px;
+background: linear-gradient(145deg, #1c1c1c, #414141);
+  width: 40px;
+  height: 40px;
+}
+
+.nsm7Bb-HzV7m-LgbsSe-BPrWId{
+  color: white !important;
+}
+
+.nsm7Bb-HzV7m-LgbsSe-MJoBVe{
+  background-color: rgb(22 22 22) !important;
+}
+
+.nsm7Bb-HzV7m-LgbsSe{
+  border: none !important;
+  background-color: rgb(22 22 22) !important;
+}
+
+.fa-google{
+  color: white;
 }
 
 /* Media Query */

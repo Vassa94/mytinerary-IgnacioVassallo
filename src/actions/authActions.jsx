@@ -1,6 +1,7 @@
 import axios from "axios";
 import { signInSuccess, signInError } from "../redux/authSlice";
 import { signOut as signOutAction } from "../redux/authSlice";
+import Swal from "sweetalert2";
 
 export const signIn = (credentials) => {
   return async (dispatch) => {
@@ -27,14 +28,31 @@ export const signUp = (userData) => {
         "http://localhost:3000/auth/signup",
         userData
       );
-      dispatch({ type: "SIGN_IN_SUCCESS", payload: response.data });
+      const { email,password } = response.data
+      console.log(response.data);
+      dispatch(signIn({ email,password }));
       Swal.fire({
         icon: "success",
         title: "User created!",
         text: "Welcome!",
+        showConfirmButton: false,
+        timer: 2500
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
+      if (error.response.status === 400){
+        Swal.fire({
+          icon: "warning",
+          title: "Login failed",
+          text: "User already exist.",
+        });
+      }else{
+        Swal.fire({
+        icon: "error",
+        title: "Login failed",
+        text: "Please verify your credentials.",
+      });
+      }
       dispatch({ type: "SIGN_UP_ERROR", error });
     }
   };

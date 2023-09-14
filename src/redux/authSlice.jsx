@@ -20,6 +20,8 @@ const authSlice = createSlice({
         icon: "success",
         title: "Successful login",
         text: "¡Welcome!",
+        showConfirmButton: false,
+        timer: 2500
       });
     },
     signInError: (state, action) => {
